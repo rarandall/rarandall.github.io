@@ -74,6 +74,18 @@
             id: "meaning_current_streak",
             dataType: tableau.dataTypeEnum.int
         }, {
+            id: "reading_correct",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "reading_incorrect",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "reading_max_streak",
+            dataType: tableau.dataTypeEnum.int
+        }, {
+            id: "reading_current_streak",
+            dataType: tableau.dataTypeEnum.int
+        }, {
             id: "onyomi",
             dataType: tableau.dataTypeEnum.string
         }, {
