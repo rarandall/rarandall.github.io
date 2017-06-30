@@ -190,9 +190,9 @@
 					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak
 				});
 			}
-		if (table.tableInfo.id == "combinedTable") {
-			table.appendRows(combinedTable);
-			};
+		//if (table.tableInfo.id == "combinedTable") {
+		//	table.appendRows(combinedTable);
+		//	};
 		});
 		
 		
@@ -231,9 +231,9 @@
 					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak
 				});
 			}
-		if (table.tableInfo.id == "combinedTable") {
-			table.appendRows(combinedTable);
-			};
+		//if (table.tableInfo.id == "combinedTable") {
+		//	table.appendRows(combinedTable);
+		//	};
 		});
 		
 
