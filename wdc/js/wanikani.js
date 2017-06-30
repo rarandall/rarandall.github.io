@@ -93,6 +93,9 @@
 	
 		//schema for radicals
 		var radicals_cols = [{
+            id: "level",
+            dataType: tableau.dataTypeEnum.string
+        }, {
             id: "character",
             dataType: tableau.dataTypeEnum.string
         }, {
@@ -104,10 +107,10 @@
         }, {
             id: "unlocked_date",
             dataType: tableau.dataTypeEnum.int
-        }, {
+        }, /* {
             id: "percentage_correct",
             dataType: tableau.dataTypeEnum.int
-        }, {
+        }, */ {
             id: "available_date",
             dataType: tableau.dataTypeEnum.int
         }, {
@@ -293,24 +296,25 @@
 		});
 		
 		$.getJSON("https://www.wanikani.com/api/user/"+ tableau.connectionData + "/radicals", function(resp) {
-			var ri2 = resp.requested_information,
+			var ri = resp.requested_information,
 				radicalsTable = [];
 
 			// Iterate over the JSON object
-			for (i = 0, len = ri2.length; i < len; i++) {
+			for (i = 0, len = ri.length; i < len; i++) {
 				radicalsTable.push({
-					"character": ri2[i].character,
-					"meaning": ri2[i].meaning,
-					"srs": ri2[i].user_specific.srs,
-					"unlocked_date": ri2[i].user_specific.unlocked_date,
-					"available_date": ri2[i].user_specific.available_date,
-					"percentage_correct": ri2[i].percentage_correct,
-					"burned": ri2[i].user_specific.burned,
-					"burned_date": ri2[i].user_specific.burned_date,
-					"meaning_correct": ri2[i].user_specific.meaning_correct,
-					"meaning_incorrect": ri2[i].user_specific.meaning_incorrect,
-					"meaning_max_streak": ri2[i].user_specific.meaning_max_streak,
-					"meaning_current_streak": ri2[i].user_specific.meaning_current_streak
+					"level": ri[i].level,
+					"character": ri[i].character,
+					"meaning": ri[i].meaning,
+					"srs": (ri[i].user_specific == null) ? "" : ri[i].user_specific.srs,
+					"unlocked_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.unlocked_date,
+					"available_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.available_date,
+					//"percentage_correct": (ri[i].user_specific == null) ? "" : ri[i].percentage_correct,
+					"burned": (ri[i].user_specific == null) ? "" : ri[i].user_specific.burned,
+					"burned_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.burned_date,
+					"meaning_correct": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_correct,
+					"meaning_incorrect": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_incorrect,
+					"meaning_max_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_max_streak,
+					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak
 				});
 			}
         if (table.tableInfo.id == "RadicalsTable") {
@@ -333,16 +337,16 @@
 					"onyomi": ri[i].onyomi,
 					"kunyomi": ri[i].kunyomi,
 					"important_reading": ri[i].important_reading,
-					"srs": ri[i].user_specific.srs,
-					"unlocked_date": ri[i].user_specific.unlocked_date,
+					"srs": (ri[i].user_specific == null) ? "" : ri[i].user_specific.srs,
+					"unlocked_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.unlocked_date,
 					//"percentage_correct": ri[i].percentage_correct,
-					"available_date": ri[i].user_specific.available_date,
-					"burned": ri[i].user_specific.burned,
-					"burned_date": ri[i].user_specific.burned_date,
-					"meaning_correct": ri[i].user_specific.meaning_correct,
-					"meaning_incorrect": ri[i].user_specific.meaning_incorrect,
-					"meaning_max_streak": ri[i].user_specific.meaning_max_streak,
-					"meaning_current_streak": ri[i].user_specific.meaning_current_streak
+					"available_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.available_date,
+					"burned": (ri[i].user_specific == null) ? "" : ri[i].user_specific.burned,
+					"burned_date": (ri[i].user_specific == null) ? "" : ri[i].user_specific.burned_date,
+					"meaning_correct": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_correct,
+					"meaning_incorrect": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_incorrect,
+					"meaning_max_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_max_streak,
+					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak
 				});
 			}
         if (table.tableInfo.id == "KanjiTable") {
