@@ -228,7 +228,11 @@
 					"meaning_correct": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_correct,
 					"meaning_incorrect": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_incorrect,
 					"meaning_max_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_max_streak,
-					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak
+					"meaning_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.meaning_current_streak,
+					"reading_correct": (ri[i].user_specific == null) ? "" : ri[i].user_specific.reading_correct,
+					"reading_incorrect": (ri[i].user_specific == null) ? "" : ri[i].user_specific.reading_incorrect,
+					"reading_max_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.reading_max_streak,
+					"reading_current_streak": (ri[i].user_specific == null) ? "" : ri[i].user_specific.reading_current_streak
 				});
 			}
 		//if (table.tableInfo.id == "combinedTable") {
