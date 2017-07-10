@@ -48,7 +48,7 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://data.medicaid.gov/resource/tau9-gfwr.json?$limit=5000000&$$app_token=1RGjNxy2MWtMGOptBxslMowXl", function(resp) {
+        $.getJSON("https://data.medicaid.gov/resource/tau9-gfwr.json?$limit=1000000&$$app_token=1RGjNxy2MWtMGOptBxslMowXl", function(resp) {
                 tableData = [];
 
             // Iterate over the JSON object
