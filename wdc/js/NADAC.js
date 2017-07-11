@@ -3,7 +3,7 @@
     var myConnector = tableau.makeConnector();
 
     // Define the schema
-    myConnector.getSchema = function(schemaCallback) {
+    myConnector.getSchema = function(schemaCallback) {		
         var cols = [{
             id: "as_of_date",
             dataType: tableau.dataTypeEnum.datetime
@@ -48,7 +48,8 @@
 
     // Download the data
     myConnector.getData = function(table, doneCallback) {
-        $.getJSON("https://data.medicaid.gov/resource/tau9-gfwr.json?$limit=1000000&$$app_token=1RGjNxy2MWtMGOptBxslMowXl", function(resp) {
+
+        $.getJSON("https://data.medicaid.gov/resource/tau9-gfwr.json?$limit=" + tableau.connectionData + "&$$app_token=1RGjNxy2MWtMGOptBxslMowXl", function(resp) {
                 tableData = [];
 
             // Iterate over the JSON object
@@ -71,13 +72,14 @@
             doneCallback();
         });
     };
-
-    tableau.registerConnector(myConnector);
+	
+tableau.registerConnector(myConnector);
 
     // Create event listeners for when the user submits the form
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "NADAC Medicaid.gov Feed"; // This will be the data source name in Tableau
+			tableau.connectionData = $('#limitrows').val().trim();
+			tableau.connectionName = 'NADAC Medicaid.gov Feed' // name the data source. This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });
     });
